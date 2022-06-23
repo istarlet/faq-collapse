@@ -1,36 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
-:root {
-  --left-bg-color: rgba(87, 84, 236, 0.7);
-  --right-bg-color: rgba(43, 43, 43, 0.8);
-  --left-btn-hover-color: rgba(87, 84, 236, 1);
-  --right-btn-hover-color: rgba(28, 122, 28, 1);
-  --hover-width: 75%;
-  --other-width: 25%;
-  --speed: 1000ms;
-}
-
-/* Generic Styles */
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
-
-  margin: 0;
-  padding: 0;
-
-  text-decoration: none;
-  list-style: none;
 }
 
 body {
+  font-family: 'Muli', sans-serif;
   background-color: #f0f0f0;
-  font-family: "Muli", sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
 }
 
 h1 {
@@ -41,7 +17,6 @@ h1 {
 .faq-container {
   max-width: 600px;
   margin: 0 auto;
-  overflow: hidden;
 }
 
 .faq {
@@ -51,6 +26,7 @@ h1 {
   margin: 20px 0;
   padding: 30px;
   position: relative;
+  overflow: hidden;
   transition: 0.3s ease;
 }
 
@@ -59,49 +35,73 @@ h1 {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-.faq.active::before, .faq.active::after {
-    content: '\f0e5';
-    font-family: 'Font Awesome 5 Free';
-    color: #2ecc71;
-    font-size: 7rem;
-    position: absolute;
-    opacity: .2;
-    top: 20px;
-    left: 20px;
-    z-index: 0; 
+.faq.active::before,
+.faq.active::after {
+  content: '\f075';
+  font-family: 'Font Awesome 5 Free';
+  color: #2ecc71;
+  font-size: 7rem;
+  position: absolute;
+  opacity: 0.2;
+  top: 20px;
+  left: 20px;
+  z-index: 0;
 }
 
 .faq.active::before {
-    color: #3498db;
-    top: -10px;
-    left: -30px;
-    transform: rotateY(180deg);
+  color: #3498db;
+  top: -10px;
+  left: -30px;
+  transform: rotateY(180deg);
 }
 
 .faq-title {
-    margin: 0 35px 0 0 ;
+  margin: 0 35px 0 0;
 }
 
 .faq-text {
-    margin: 30px 0 0;
+  display: none;
+  margin: 30px 0 0;
 }
 
 .faq.active .faq-text {
-    display: block;
+  display: block;
 }
 
 .faq-toggle {
-    background-color: transparent;
-    border: 0;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    padding: 0;
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    height: 30px;
-    width: 30px;
+  background-color: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding: 0;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 30px;
+  width: 30px;
+}
+
+.faq-toggle:focus {
+  outline: 0;
+}
+
+.faq-toggle .fa-times {
+  display: none;
+}
+
+.faq.active .faq-toggle .fa-times {
+  color: #fff;
+  display: block;
+}
+
+.faq.active .faq-toggle .fa-chevron-down {
+  display: none;
+}
+
+.faq.active .faq-toggle {
+  background-color: #9fa4a8;
 }
